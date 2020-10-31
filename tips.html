@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tips Python &mdash; documentation Bonnes_pratiques_python 1.0.1</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="documentation Bonnes_pratiques_python 1.0.1" href="index.html" />
+    <link rel="prev" title="Les classes en Python" href="classe.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="classe.html" title="Les classes en Python"
+             accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">documentation Bonnes_pratiques_python 1.0.1</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tips-python">
+<h1>Tips Python<a class="headerlink" href="#tips-python" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Tips pour utiliser Python efficacement</p>
+<div class="section" id="un-type-de-variable-tres-utile-les-dictionnaires">
+<h2>Un type de variable très utile : les dictionnaires !<a class="headerlink" href="#un-type-de-variable-tres-utile-les-dictionnaires" title="Lien permanent vers ce titre">¶</a></h2>
+<p>En Python tu peux utiliser les variables de type classique (int, float, str, list, ...) mais aussi des type propre à Python comme les dictionnaires (dict).
+Ce type de variable est très pratique lorsque tu veux stocker des informations de types différents et y accéder rapidement. Le fonctionnement du dictionnaire est simple,
+il marche par système de clé et de valeur et se déclare entre accolade ({}) contrairement au liste qui se déclare en crochet ([]). La clé doit toujours être une string
+et la valeur peut être de n&#8217;importe quel type (liste, str, int, float) et cela indépendemment des autres types de valeur de ton dictionnaire.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#déclaration de valeur</span>
+<span class="n">valeur1</span> <span class="o">=</span> <span class="s">&quot;salut&quot;</span>
+<span class="n">valeur2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="s">&quot;str&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]</span>
+
+<span class="c">#dictionnaire vide</span>
+<span class="n">dictionnaire</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c">#dictionnaire non vide avec deux paire &quot;clé/valeur&quot;</span>
+<span class="n">dictionnaire</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;cle1&quot;</span><span class="p">:</span> <span class="n">valeur1</span><span class="p">,</span> <span class="s">&quot;cle2&quot;</span><span class="p">,</span> <span class="n">valeur2</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Une fois que ton dictionnaire est déclaré, tu peux facilement accéder à la valeur que tu veux en utilisant la bonne clé:</p>
+<p>..code-block:: python</p>
+<blockquote>
+<div>#Appelle d&#8217;un dictionnaire pour afficher la valeur1
+print dictionnaire[&#8220;cle1&#8221;]</div></blockquote>
+<p>Dans l&#8217;exemple ci-dessous, &#8220;salut&#8221; est écrit dans le terminal</p>
+<div class="section" id="exemple">
+<h3>Exemple<a class="headerlink" href="#exemple" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Mettons par exemple qu&#8217;on dispose
+d&#8217;une liste de capteurs et que pour chaque capteur on dispose d&#8217;une information à stocker avec ce capteur en particulier. Le code s&#8217;écrira de la façon suivante:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#Liste de capteurs</span>
+<span class="n">capteurs</span> <span class="o">=</span> <span class="n">read_list_capteur</span><span class="p">()</span>
+
+<span class="c">#liste vide pour stocker les informations de capteurs et le capteur</span>
+<span class="n">capteur_et_info</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c">#boucle pour lire l&#39;infos remontant de chaque capteur et l&#39;ajouter dans une liste</span>
+<span class="k">for</span> <span class="n">capteur</span> <span class="ow">in</span> <span class="n">capteurs</span><span class="p">:</span>
+
+        <span class="c">#Lecture de l&#39;info dans le capteur</span>
+        <span class="n">infos_capteur</span> <span class="o">=</span> <span class="n">read_infos</span><span class="p">(</span><span class="n">capteur</span><span class="p">)</span>
+
+        <span class="c">#Création d&#39;un dictionnaire</span>
+        <span class="n">dictionnaire</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;capteur&quot;</span> <span class="p">:</span> <span class="n">capteur</span><span class="p">,</span> <span class="s">&quot;infos&quot;</span><span class="p">:</span> <span class="n">infos_capteur</span><span class="p">}</span>
+
+        <span class="c">#ajout dans la liste du dictionnaire</span>
+        <span class="n">capteur_et_info</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dictionnaire</span><span class="p">)</span>
+
+<span class="c">#Affichage des infos et du capteur pour chaque capteur dans la liste</span>
+<span class="k">for</span> <span class="n">dictio</span> <span class="ow">in</span> <span class="n">capteur_et_info</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&quot;L&#39;informations &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dictio</span><span class="p">[</span><span class="s">&quot;capteur&quot;</span><span class="p">])</span> <span class="o">+</span> <span class="s">&quot; a été lu dans &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dictio</span><span class="p">[</span><span class="s">&quot;capteur&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="attention-aux-caracteres-speciaux">
+<h2>Attention aux caractères spéciaux<a class="headerlink" href="#attention-aux-caracteres-speciaux" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Tout est dans le titre ... En anglais tout est sans accent, du coup évite au maximum d&#8217;écrire en français ou alors fait le sans accent (pas de à, é, è, ç, °, ...).
+Cette règle est valable aussi bien pour les commentaires de ton script, les noms de fichier que tu vas utiliser et même le contenus des fichiers que tu vas utiliser !!</p>
+</div>
+<div class="section" id="les-classes">
+<h2>Les classes !<a class="headerlink" href="#les-classes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Vraiment très utile en Python mais rarement utilisé, les classes te permettent de faire des objets avec des caractéristiques bien rangé et d&#8217;accéder rapidement aux informations
+que tu veux stocker. Penses à les utiliser et n&#8217;hésite pas à te renseigner sur la page classe de ce docuement. (<a class="reference internal" href="classe.html"><em>Les classes en Python</em></a>)</p>
+</div>
+<div class="section" id="print">
+<h2>Print<a class="headerlink" href="#print" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Utiliser l&#8217;instruction print est très pratique mais doit se faire avec parcimonie. Exemple attention à bien utiliser des types str dans l&#8217;affichage !</p>
+<p>Il existe d&#8217;ailleurs plusieurs manières d&#8217;afficher avec print:</p>
+<blockquote>
+<div><p>1. L&#8217;affichage pour une seul variable avec du texte
+.. code-block:: python</p>
+<blockquote>
+<div><p>#option 1
+print(&#8220;Texte à afficher :&#8221; + str(variable))</p>
+<p>#option 2
+print(&#8220;Texte à afficher :&#8221;, variable)</p>
+</div></blockquote>
+<p>2. L&#8217;affichage de plusieurs variables
+.. code-block:: python</p>
+<blockquote>
+<div><p>#option 1
+print(&#8220;Variable 1 :&#8221; + str(var1) + &#8220;Variable 2 :&#8221; + var2)</p>
+<p>#option 2
+print(&#8220;Variable 1 : {}, Variable 2 : {}&#8221;.format(var1, var2))</p>
+<p>#option 3 (je la maitrise pas bien et elle est plus trop utilisé ...
+print(&#8220;Variable 1 : %i, %s, %d&#8221;(1, 2.0, &#8220;string&#8221;))</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table des Matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tips Python</a><ul>
+<li><a class="reference internal" href="#un-type-de-variable-tres-utile-les-dictionnaires">Un type de variable très utile : les dictionnaires !</a><ul>
+<li><a class="reference internal" href="#exemple">Exemple</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#attention-aux-caracteres-speciaux">Attention aux caractères spéciaux</a></li>
+<li><a class="reference internal" href="#les-classes">Les classes !</a></li>
+<li><a class="reference internal" href="#print">Print</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="classe.html"
+                        title="Chapitre précédent">Les classes en Python</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tips.txt"
+            rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Saisissez un mot clef ou un nom de module, classe ou fonction.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, T.VIROT.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
+      
+      |
+      <a href="_sources/tips.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>
