@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Les librairies &mdash; documentation Bonnes_pratiques_python 1.0.1</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="documentation Bonnes_pratiques_python 1.0.1" href="index.html" />
+    <link rel="next" title="Les classes en Python" href="classe.html" />
+    <link rel="prev" title="Commentaire" href="comment.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="classe.html" title="Les classes en Python"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="comment.html" title="Commentaire"
+             accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">documentation Bonnes_pratiques_python 1.0.1</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="les-librairies">
+<h1>Les librairies<a class="headerlink" href="#les-librairies" title="Lien permanent vers ce titre">¶</a></h1>
+<p>La force de python est de savoir qu&#8217;il existe de nombreuse librairies à disposition et facilement installable</p>
+<div class="section" id="installer-une-librairie-avec-pip">
+<h2>Installer une librairie avec pip<a class="headerlink" href="#installer-une-librairie-avec-pip" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans python il existe un module très pratique pour installer des librairies: l&#8217;outil <em>pip</em>.
+Pour l&#8217;utiliser il y aura a mon avis deux cas de figure :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Tu n&#8217;utilises pas d&#8217;IDE comme Anaconda et tu dois tout faire en ligne de commande</li>
+<li>Tu utilises un IDE comme Anaconda</li>
+</ul>
+</div></blockquote>
+<div class="section" id="installation-dans-un-terminal">
+<h3>Installation dans un terminal<a class="headerlink" href="#installation-dans-un-terminal" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Il faudra ouvrir un terminal. Que ce soit un terminal windows ou Linux d&#8217;ailleurs.</p>
+<p><strong>Rappel</strong> : sur windows pour ouvrir un terminal il faut faire la touche Windows + r et ensuite taper cmd et entrée sur linux le raccourci c&#8217;est souvent ctrl + alt + t</p>
+<p>Une fois que le terminal est lancer tu peux directement vérifier si il y a python d&#8217;installer en tapant l&#8217;une de ces commandes suivante (je te mets pas le détail mais ca change
+selon le système d&#8217;exploitation donc essye et tu verras bien !)</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong class="command">python --version</strong></li>
+<li><strong class="command">python3 --version</strong></li>
+<li><strong class="command">py --version</strong></li>
+<li><strong class="command">py3 --version</strong></li>
+</ul>
+</div></blockquote>
+<p>Si tu as le choix privilégie une version de python 3.X.</p>
+<dl class="docutils">
+<dt>Une fois que tu sais que python est installé tu peux installer n&#8217;importe quelle librairie avec la commande pip. Par exemple si tu veux installer numpy tu fais:</dt>
+<dd><strong class="command">pip install numpy</strong></dd>
+</dl>
+<p>Tu vas voir des lignes de code s&#8217;afficher et normalement numpy va s&#8217;installer (attention parfois faut confirmer en tapant un &#8216;y&#8217; dans le terminal.</p>
+</div>
+<div class="section" id="installation-dans-un-ide">
+<h3>Installation dans un IDE<a class="headerlink" href="#installation-dans-un-ide" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Dans un IDe, il doit y avoir normalement un endroit qui s&#8217;appelle &#8216;console&#8217; ou &#8216;terminal&#8217;. Si tu ne le trouves pas go check sur internet comment y accéder. Une fois que
+tu es dedans tu peux directement écrire <strong class="command">pip install mylibrairie</strong></p>
+<p>Petite astuce, tu peux chercher sur internet &#8220;comment installer la librairie XXX&#8221; et bien souvent tu tombes sur des instruction avec pip.</p>
+</div>
+</div>
+<div class="section" id="liste-de-librairie-utiles">
+<h2>Liste de librairie utiles:<a class="headerlink" href="#liste-de-librairie-utiles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Avec python on utilise très souvent certaine librairie que tu dois connaitre. Pour éviter que tu ne cherches trop longtemps je t&#8217;en mets quelques unes:</p>
+<p><strong>Ps:</strong> si la fonction est &#8220;<em>buildin</em>&#8221; alors tu n&#8217;as pas besoin de l&#8217;installer avec pip, juste de l&#8217;importer.</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text">Liste de librairie</span><a class="headerlink" href="#id1" title="Lien permanent vers ce tableau">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Nom</th>
+<th class="head">utilité</th>
+<th class="head">importation courante</th>
+<th class="head">buildin function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Numpy</td>
+<td>Très pratique pour faire des calculs mathématique en tout genre</td>
+<td>import numpy as np</td>
+<td>non</td>
+</tr>
+<tr class="row-odd"><td>matplotlib.pyplot</td>
+<td>Très utile pour tracer des graphes (même en 3D !)</td>
+<td>import matplotlib.pyplot as plt</td>
+<td>non</td>
+</tr>
+<tr class="row-even"><td>seaborn</td>
+<td>Ressemblant a pyplot mais est fait exprès pour visualiser des données de statistiques et des données en générales. Par exemple tu peux afficher plusieurs graph avec des
+axes différents sur une même feuille. Très pratique pour faire de la comparaison de graphe</td>
+<td>import seaborn as sb</td>
+<td>non</td>
+</tr>
+<tr class="row-odd"><td>pandas</td>
+<td>Indispensable pour faire des actions sur des fichiers csv</td>
+<td>import pandas as pd</td>
+<td>non</td>
+</tr>
+<tr class="row-even"><td>sklearn</td>
+<td>Pratique pour faire des calculs statistique et du machine learning/IA</td>
+<td>import sklearn as sk</td>
+<td>non</td>
+</tr>
+<tr class="row-odd"><td>os</td>
+<td>Indispensable pour interagir avec le système (ex une clé usb, des actions directement dans le systeme etc)</td>
+<td>import os</td>
+<td>oui</td>
+</tr>
+<tr class="row-even"><td>sys</td>
+<td>S&#8217;utilise en interaction avec os, les 2 modules sont quais toujorus importé ensemble</td>
+<td>import sys</td>
+<td>oui</td>
+</tr>
+<tr class="row-odd"><td>time</td>
+<td>Pratique pour calculer le temps entre deux ligne de code via l&#8217;instruction time.time()</td>
+<td>import time</td>
+<td>oui</td>
+</tr>
+<tr class="row-even"><td>datetime</td>
+<td>S&#8217;utilise pour gérer les dates</td>
+<td>import datetime</td>
+<td>non</td>
+</tr>
+<tr class="row-odd"><td>csv</td>
+<td>S&#8217;utilise pour traiter les fichiers csv. Moins pratique que pandas mais plus léger à mettre en place si tu as un petit fichiers</td>
+<td>import csv</td>
+<td>oui</td>
+</tr>
+<tr class="row-even"><td>pyModbus</td>
+<td>Permet de lire des informations en modbus</td>
+<td>import pydmodbus</td>
+<td>non</td>
+</tr>
+<tr class="row-odd"><td>re</td>
+<td>Module d&#8217;expression régulière. Permet de faire des recherche ultra rapide dans des grandes string</td>
+<td>import re</td>
+<td>oui</td>
+</tr>
+<tr class="row-even"><td>scapy</td>
+<td>Bibliothèque pour faire du réseau informatique mais je ne la connais pas</td>
+<td>import scapy</td>
+<td>non</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table des Matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Les librairies</a><ul>
+<li><a class="reference internal" href="#installer-une-librairie-avec-pip">Installer une librairie avec pip</a><ul>
+<li><a class="reference internal" href="#installation-dans-un-terminal">Installation dans un terminal</a></li>
+<li><a class="reference internal" href="#installation-dans-un-ide">Installation dans un IDE</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#liste-de-librairie-utiles">Liste de librairie utiles:</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="comment.html"
+                        title="Chapitre précédent">Commentaire</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="classe.html"
+                        title="Chapitre suivant">Les classes en Python</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/librairie.txt"
+            rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Saisissez un mot clef ou un nom de module, classe ou fonction.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, T.VIROT.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
+      
+      |
+      <a href="_sources/librairie.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>

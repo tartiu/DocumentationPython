@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Structure d’un fichier Python &mdash; documentation Bonnes_pratiques_python 1.0.1</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="documentation Bonnes_pratiques_python 1.0.1" href="index.html" />
+    <link rel="next" title="Commentaire" href="comment.html" />
+    <link rel="prev" title="Bienvenue dans cette documentation!" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="Index général"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="comment.html" title="Commentaire"
+             accesskey="N">suivant</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Bienvenue dans cette documentation!"
+             accesskey="P">précédent</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">documentation Bonnes_pratiques_python 1.0.1</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="structure-d-un-fichier-python">
+<h1>Structure d&#8217;un fichier Python<a class="headerlink" href="#structure-d-un-fichier-python" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Pour s&#8217;y retrouver lorsque plusieurs développeurs lisent un code, il faut s&#8217;imposer des règles.</p>
+<div class="section" id="regles-pour-le-nommage-des-variables">
+<h2>Règles pour le nommage des variables<a class="headerlink" href="#regles-pour-le-nommage-des-variables" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour nommer une variable en Python on préfèrera utiliser la séparation par des underscores.</p>
+<p><strong>Exemple:</strong></p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">fichier</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;monfichier.txt&quot;</span><span class="p">,</span> <span class="s">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">string_fichier</span> <span class="o">=</span> <span class="n">fichier</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">fichier</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Les noms de classe en Python respectent les caractéristiques suivantes :</p>
+<blockquote>
+<div><ul class="simple">
+<li>Ils utilisent la camelCase</li>
+<li>Ils commencent par une majuscule</li>
+</ul>
+</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MaClasse</span><span class="p">():</span>
+</pre></div>
+</div>
+<p>Les noms de fonctions sont écrits de la même manière que les noms de variable.</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">string_to_int</span><span class="p">():</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="regle-pour-construire-un-fichier-python">
+<h2>Règle pour construire un fichier Python<a class="headerlink" href="#regle-pour-construire-un-fichier-python" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour éviter des conflits lors de l&#8217;importation de fichiers Python, il faut respecter une structure particulière de construction du fichier.
+Si par exemple on souhaite avoir un script qui importe le contenu d&#8217;un fichier et qui traite ce fichier pour remplacer les caractères &#8220;è&#8221; par des &#8220;e&#8221;.
+Dans un script classique de Python on pourrait avoir les instructions suivantes:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="n">fichier</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;mon_fichier.txt&quot;</span><span class="p">,</span> <span class="s">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">f_str</span> <span class="o">=</span> <span class="n">fichier</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">remplacement</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+        <span class="n">new_str</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;è&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_str</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">remplacement</span><span class="p">(</span><span class="n">f_str</span><span class="p">))</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Le problème de ce fichier c&#8217;est qu&#8217;à chaque fois qu&#8217;on va vouloir l&#8217;importer dans un autre script python (par exemple pour réutiliser la méthode <em>remplacement</em>)
+le code se rééxecutera et on aura le contenu de <em>mon_fichier.txt</em> qui s&#8217;affichera systématiquement dans la console.</p>
+<p>Pour éviter ce problème on encapsule la fonction à executer dans une condition if de la manière suivante:</p>
+<blockquote>
+<div><div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+        <span class="sd">&#39;&#39;&#39;Fonction principale qui va s&#39;executer quand on lancera le script</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="c">#Execution du code</span>
+        <span class="n">fichier</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;mon_fichier.txt&quot;</span><span class="p">,</span> <span class="s">&quot;rb&quot;</span><span class="p">)</span>
+        <span class="n">f_str</span> <span class="o">=</span> <span class="n">fichier</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+        <span class="c">#Affichage du résultat</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">remplacement</span><span class="p">(</span><span class="n">f_str</span><span class="p">))</span>
+
+<span class="c">#Fonction ecrit en dehors du main. Elle peut être importer facilement par un autre script</span>
+<span class="k">def</span> <span class="nf">remplacement</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;Fonction qui remplace le caractère &quot;è&quot; par &quot;e&quot;</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+
+<span class="sd">        str : str</span>
+<span class="sd">                Str où les caractères vont être remplacés</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -----------</span>
+<span class="sd">        new_str : str</span>
+<span class="sd">                Retourne la chaine de caractère avec le caractère remplacés</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="n">new_str</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;è&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_str</span>
+
+<span class="c">#Condition ultra importante pour éviter que le script s&#39;execute lorsqu&#39;on importe une fonction</span>
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+        <span class="c">#Fonction que l&#39;on veut exécuter lorsqu&#39;on lance le script seul</span>
+        <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="ligne-de-code-indispensable">
+<h2>Ligne de code indispensable<a class="headerlink" href="#ligne-de-code-indispensable" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Entre python 2.X et python 3.X il existe de grosses différences d&#8217;encodage des caractères et de la gestion de l&#8217;écriture des variables. Pour éviter tout problème
+on n&#8217;utilise jamais ou très rarement python2 et python3 sur le même fichier. Généralement on choisit une version et on s&#8217;y tient. Néanmoins pour expliquer à Python l&#8217;encodage à utiliser
+il faut systématiquement écrire tout en haut du fichier python la ligne suivante:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+</pre></div>
+</div>
+<p><strong>PS:</strong> Si t&#8217;as le choix, utilise python 3 !</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table des Matières</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Structure d&#8217;un fichier Python</a><ul>
+<li><a class="reference internal" href="#regles-pour-le-nommage-des-variables">Règles pour le nommage des variables</a></li>
+<li><a class="reference internal" href="#regle-pour-construire-un-fichier-python">Règle pour construire un fichier Python</a></li>
+<li><a class="reference internal" href="#ligne-de-code-indispensable">Ligne de code indispensable</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Sujet précédent</h4>
+  <p class="topless"><a href="index.html"
+                        title="Chapitre précédent">Bienvenue dans cette documentation!</a></p>
+  <h4>Sujet suivant</h4>
+  <p class="topless"><a href="comment.html"
+                        title="Chapitre suivant">Commentaire</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Cette page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/structure.txt"
+            rel="nofollow">Montrer le code source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Recherche rapide</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Saisissez un mot clef ou un nom de module, classe ou fonction.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, T.VIROT.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.3</a>
+      
+      |
+      <a href="_sources/structure.txt"
+          rel="nofollow">Page source</a></li>
+    </div>
+
+    
+
+    
+  </body>
+</html>
